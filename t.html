@@ -7,20 +7,17 @@
 <body>
 <input type="number" id="c"  placeholder="*C">
 <input type="number" id="f"  placeholder="*F">
-<p id="out"></p>
-<input type="button" id="result" value="Change" onclick="hamsoA()">
+<input type="button" value="Change" onclick="result()">
 <script>
 class Temperature{
+    constructor(c) {
+        this._c = c;
+    }
     get c() {
         return this._c;
     }
-
     set c(value) {
         this._c = value;
-    }
-    constructor(c) {
-
-        this._c = c;
     }
     getF() {
         return 1.8 * this.c + 32;
@@ -30,7 +27,7 @@ class Temperature{
     }
 }
 
-function hamsoA() {
+function result() {
     let inputTemp = document.getElementById("c").value;
     let a = new Temperature(inputTemp);
     document.getElementById('f').value = a.getF();
